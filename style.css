@@ -1,0 +1,131 @@
+/* General body and container styling */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.quiz-container {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 30px 40px;
+  border-radius: 15px;
+  width: 400px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(8.5px);
+  -webkit-backdrop-filter: blur(8.5px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 25px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+}
+
+#question {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+}
+
+/* Buttons Grid */
+.btn-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+/* Answer Buttons */
+.btn {
+  background-color: #5a5a5a;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 0;
+  font-size: 1.1rem;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  user-select: none;
+}
+
+.btn:hover:not(:disabled) {
+  background-color: #7d7d7d;
+}
+
+/* Disabled Buttons */
+.btn:disabled {
+  cursor: default;
+  opacity: 0.7;
+}
+
+/* Next Button */
+#next-btn {
+  background-color: #764ba2;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 30px;
+  color: white;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(118, 75, 162, 0.6);
+  transition: background-color 0.3s ease;
+  display: none;
+}
+
+#next-btn:hover {
+  background-color: #8e62c3;
+}
+
+/* Animations */
+@keyframes correctAnimation {
+  0% {
+    transform: scale(1);
+    background-color: #4caf50;
+    box-shadow: 0 0 0 rgba(76, 175, 80, 0);
+  }
+  50% {
+    transform: scale(1.15) rotate(10deg);
+    background-color: #66bb6a;
+    box-shadow: 0 0 12px rgba(76, 175, 80, 0.7);
+  }
+  100% {
+    transform: scale(1);
+    background-color: #4caf50;
+    box-shadow: 0 0 0 rgba(76, 175, 80, 0);
+  }
+}
+
+@keyframes wrongAnimation {
+  0% {
+    transform: scale(1);
+    background-color: #f44336;
+    box-shadow: 0 0 0 rgba(244, 67, 54, 0);
+  }
+  50% {
+    transform: scale(1.15) rotate(-10deg);
+    background-color: #ef5350;
+    box-shadow: 0 0 12px rgba(244, 67, 54, 0.7);
+  }
+  100% {
+    transform: scale(1);
+    background-color: #f44336;
+    box-shadow: 0 0 0 rgba(244, 67, 54, 0);
+  }
+}
+
+.correct {
+  animation: correctAnimation 0.6s ease forwards;
+  color: white !important;
+}
+
+.wrong {
+  animation: wrongAnimation 0.6s ease forwards;
+  color: white !important;
+}
